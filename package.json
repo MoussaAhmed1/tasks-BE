@@ -26,6 +26,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
+  "engines": {
+    "node": "v20.10.0"
+  },
   "author": "Mohamed Yossry",
   "license": "ISC"
 }

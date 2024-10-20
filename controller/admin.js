@@ -38,11 +38,11 @@ exports.createTask = (req, res, next) => {
             errors: err.array()
         })
     }
-    const imageUrl = req.file.path;
+    const imageUrl = req?.file?.path;
     const postTask = new taskSchema({
         title: req.body.title,
         userId: req.body.userId,
-        image: imageUrl,
+        image: imageUrl||"",
         description: req.body.description,
         deadline: req.body.deadline,
     })

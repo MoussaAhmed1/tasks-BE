@@ -75,15 +75,15 @@ exports.editTask = (req, res, next) => {
     const description = req.body.description;
     const deadline = req.body.deadline;
     const userId = req.body.userId;
-    let image = req.body.image
-    if (req.file) {
+    let image = req?.body?.image??null;
+    if (req?.file) {
         image = req.file.path
     }
-    if (!image) {
-        let error = new Error("No Image Uploaded")
-        error.statusCode = 422;
-        throw error
-    }
+    // if (!image) {
+    //     let error = new Error("No Image Uploaded")
+    //     error.statusCode = 422;
+    //     throw error
+    // }
     taskSchema.findByIdAndUpdate(req.params.id).then(result => {
         if (!result) {
             let error = new Error("No Task Found With This ID...")
